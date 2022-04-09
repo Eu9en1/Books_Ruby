@@ -4,4 +4,5 @@ source 'https://rubygems.org'
 
 # gem "rails"
 
-gem 'rubocop', '~> 1.22'
+gem 'json'
+gem 'rubocop'
