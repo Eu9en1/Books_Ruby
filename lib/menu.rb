@@ -15,6 +15,7 @@ class Menu
   def self.start_menu
     json = JSONParser.read_json
     books = JSONParser.read_books(json)
+    authors = JSONParser.read_authors(json)
     publishing_houses = JSONParser.read_publishing_houses(json)
     
     print_info(books, publishing_houses)
@@ -26,15 +27,15 @@ class Menu
         break
       end
       if choise == 2
-        puts(books.random_book(json))
+        puts(authors.random_author(json))
         loop do
           choise = menu_loop_sec
           if choise == 3
-            print("Работа программы завершена пользователем\n")
+            print("Работа программы завершена\n")
             abort
           end
           if choise == 2
-            puts(books.random_book(json))
+            puts(authors.random_author(json))
           end
           if choise == 1
             break

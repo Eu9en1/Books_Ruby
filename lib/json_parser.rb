@@ -35,7 +35,7 @@ class JSONParser
   def self.read_authors(obj)
     authors = []
     obj['internalAuthors'].map do |objects|
-      element = Author.new(objects['id'], objects['authorName'])
+      element = Author.new(objects['id'], objects['authorName'], objects['letter'])
       authors.append(element)
     end
     AuthorsCollection.new(authors)
