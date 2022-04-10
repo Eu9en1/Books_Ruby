@@ -29,13 +29,13 @@ class Menu
       if choise == 2
         puts(authors.random_author(json))
         loop do
-          choise = menu_loop_sec
-          if choise == 3
+          choise_sec = menu_loop_sec
+          if choise_sec == 3
             print("Работа программы завершена\n")
             abort
           end
-          puts(authors.random_author(json)) if choise == 2
-          break if choise == 1
+          puts(authors.random_author(json)) if choise_sec == 2
+          break if choise_sec == 1
         end
       end
       puts(books.random_book(json)) if choise == 1
@@ -71,16 +71,16 @@ class Menu
     print("1. Назад к первому меню\n")
     print("2. Другой случайный автор\n")
     print("3. Выход\n")
-    print('Введите номер нужнного пункта меню: ')
-    choise = gets.to_i
+    print('Введите номер нужного пункта меню: ')
+    choise_sec = gets.to_i
 
     loop do
-      break if [3, 2, 1].include?(choise)
+      break if [3, 2, 1].include?(choise_sec)
 
       print('Номер пункта меню введен неверно, введите еще раз: ')
-      choise = gets.to_i
+      choise_sec = gets.to_i
     end
 
-    choise
+    choise_sec
   end
 end
