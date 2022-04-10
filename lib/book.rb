@@ -31,15 +31,15 @@ class Book
 
     authors_names = []
 
-    @authors&.map do |a|
+    @authors.map do |a|
       name = authors_col.find_by_id(a['id']).name
       authors_names.append(name)
     end
 
-    "Категория: #{categories&.find_by_id(@category)&.name}\n" +
+    "Категория: #{categories.find_by_id(@category).name}\n" +
       "Автор(ы): #{authors_names}\n".delete('[""]') +
       "Название: #{@name}\n" \
       "Стоимость: #{@price}\n" \
-      "isbn: #{@isbn}\n"
+      "isbn: #{@isbn}\n" \
   end
 end

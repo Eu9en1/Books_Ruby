@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'JSON_parser'
+
 # Конструктор объекта Автор
 class Author
   attr_reader :id, :name, :letter
