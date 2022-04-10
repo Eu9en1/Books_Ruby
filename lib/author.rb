@@ -10,10 +10,7 @@ class Author
     @letter = letter
   end
 
-  def to_string(json)
-    authors_list = JSONParser.read_authors(json)
-    
-
+  def to_string(_json)
     "Автор: #{@name}\n" \
       "id: #{@id}\n" \
       "Первая буква Автора: #{@letter}\n"

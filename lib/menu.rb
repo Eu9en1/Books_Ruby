@@ -17,9 +17,9 @@ class Menu
     books = JSONParser.read_books(json)
     authors = JSONParser.read_authors(json)
     publishing_houses = JSONParser.read_publishing_houses(json)
-    
+
     print_info(books, publishing_houses)
-    
+
     loop do
       choise = menu_loop
       if choise == 3
@@ -34,12 +34,8 @@ class Menu
             print("Работа программы завершена\n")
             abort
           end
-          if choise == 2
-            puts(authors.random_author(json))
-          end
-          if choise == 1
-            break
-          end
+          puts(authors.random_author(json)) if choise == 2
+          break if choise == 1
         end
       end
       puts(books.random_book(json)) if choise == 1
@@ -60,7 +56,7 @@ class Menu
     print("3. Выход\n")
     print('Введите номер нужного пункта меню: ')
     choise = gets.to_i
-    
+
     loop do
       break if [3, 2, 1].include?(choise)
 
@@ -77,7 +73,7 @@ class Menu
     print("3. Выход\n")
     print('Введите номер нужнного пункта меню: ')
     choise = gets.to_i
-    
+
     loop do
       break if [3, 2, 1].include?(choise)
 
@@ -87,5 +83,4 @@ class Menu
 
     choise
   end
-
 end
