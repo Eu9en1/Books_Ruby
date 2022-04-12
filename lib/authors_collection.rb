@@ -14,7 +14,7 @@ class AuthorsCollection
     end
   end
 
-  def random_author(json)
-    @authors.sample.to_string(json)
+  def random_author(books)
+    @authors.sample.to_string(books)
   end
 end

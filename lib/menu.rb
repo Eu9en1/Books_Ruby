@@ -27,14 +27,14 @@ class Menu
         break
       end
       if choise == 2
-        puts(authors.random_author(json))
+        puts(authors.random_author(books))
         loop do
           choise_sec = menu_loop_sec
           if choise_sec == 3
             print("Работа программы завершена\n")
             abort
           end
-          puts(authors.random_author(json)) if choise_sec == 2
+          puts(authors.random_author(books)) if choise_sec == 2
           break if choise_sec == 1
         end
       end

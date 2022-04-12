@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'JSON_parser'
-
 # Конструктор объекта Автор
 class Author
   attr_reader :id, :name, :letter
@@ -12,17 +10,17 @@ class Author
     @letter = letter
   end
 
-  def to_string(json)
-    a_books = JSONParser.read_books(json)
-    author_books = []
-
-    @books&.map do |auth|
-      book_name = a_books.find_by_id(auth['id']).name
-      author_books.append(book_name)
+      def to_string(books)
+      author_books = []
+      books.books.map do |book|
+        flag = false
+        book.authors.map do |a|
+          flag = true if a.to_a[0][1].to_i == @id.to_i
+        end
+        author_books.append(book.name) if flag
+      end
+      "Автор: #{@name}\n" \
+      "id: #{@id}\n" \
+      "Написанные книги: #{author_books}\n"
     end
-    "Автор: #{@name}\n" \
-    "id: #{@id}\n" \
-    "Первая буква Автора: #{@letter}\n" \
-    "Написанные книги: #{author_books}\n"
-  end
 end

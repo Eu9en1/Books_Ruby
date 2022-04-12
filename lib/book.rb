@@ -30,10 +30,16 @@ class Book
     authors_col = JSONParser.read_authors(json)
 
     authors_names = []
+    authors_letter = []
 
     @authors.map do |a|
       name = authors_col.find_by_id(a['id']).name
       authors_names.append(name)
+    end
+
+    @authors.map do |a|
+      letter = authors_col.find_by_id(a['id']).letter
+      authors_letter.append(letter)
     end
 
     "Категория: #{categories.find_by_id(@category).name}\n" +
@@ -41,5 +47,9 @@ class Book
       "Название: #{@name}\n" \
       "Стоимость: #{@price}\n" \
       "isbn: #{@isbn}\n" \
+    # "Автор: #{@name}\n" \
+    # "id: #{authors_books}\n" \
+    "Первая буква Автора: #{authors_letter}\n" \
+    # "Написанные книги: #{author_books}\n"
   end
 end
